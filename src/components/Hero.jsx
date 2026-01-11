@@ -254,16 +254,31 @@ const rotatingWords = [
     'detailing',
 ];
 
+const videos = [
+    { src: '/car-force-product-lp/videos/Roadside_Assistance_Video_Generation.mp4' },
+    { src: '/car-force-product-lp/videos/Mobile_Mechanic_Video_Generation.mp4' },
+    { src: '/car-force-product-lp/videos/Car_Deal_Video_Generation.mp4' },
+];
+
+// Avatar images for trust indicators
+const avatarImages = [
+    '/car-force-product-lp/avatars/avatar-1.jpg',
+    '/car-force-product-lp/avatars/avatar-2.jpg',
+    '/car-force-product-lp/avatars/avatar-3.jpg',
+    '/car-force-product-lp/avatars/avatar-4.jpg',
+];
+
 export default function Hero() {
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [currentWordIndex, setCurrentWordIndex] = useState(0);
+    const [currentVideoIndex, setCurrentVideoIndex] = useState(0);
     const [isVisible, setIsVisible] = useState(false);
     const [isScrolled, setIsScrolled] = useState(false);
 
     useEffect(() => {
         setIsVisible(true);
 
-        const interval = setInterval(() => {
+        const wordInterval = setInterval(() => {
             setCurrentWordIndex((prev) => (prev + 1) % rotatingWords.length);
         }, 2000);
 
@@ -274,10 +289,14 @@ export default function Hero() {
         window.addEventListener('scroll', handleScroll);
 
         return () => {
-            clearInterval(interval);
+            clearInterval(wordInterval);
             window.removeEventListener('scroll', handleScroll);
         };
     }, []);
+
+    const handleVideoEnded = () => {
+        setCurrentVideoIndex((prev) => (prev + 1) % videos.length);
+    };
 
     return (
         <section className='relative min-h-screen bg-white overflow-hidden pt-20'>
@@ -466,13 +485,13 @@ export default function Hero() {
                         <div className='flex flex-wrap items-center gap-6 pt-4'>
                             <div className='flex items-center gap-2'>
                                 <div className='flex -space-x-2'>
-                                    {[...Array(4)].map((_, i) => (
-                                        <div
+                                    {avatarImages.map((src, i) => (
+                                        <img
                                             key={i}
-                                            className='w-8 h-8 rounded-full border-2 border-white bg-gradient-to-br from-forest-400 to-forest-600 flex items-center justify-center text-white text-xs font-bold'
-                                        >
-                                            {String.fromCharCode(65 + i)}
-                                        </div>
+                                            src={src}
+                                            alt={`User ${i + 1}`}
+                                            className='w-8 h-8 rounded-full border-2 border-white object-cover shadow-sm'
+                                        />
                                     ))}
                                 </div>
                                 <span className='text-sm text-slate-600'>
@@ -502,7 +521,7 @@ export default function Hero() {
                         </div>
                     </div>
 
-                    {/* Right Column - Visual */}
+                    {/* Right Column - Video Carousel */}
                     <div
                         className={`relative transition-all duration-1000 delay-300 ${
                             isVisible
@@ -510,80 +529,35 @@ export default function Hero() {
                                 : 'opacity-0 translate-y-8'
                         }`}
                     >
-                        {/* Main card */}
-                        <div className='relative bg-gradient-to-br from-forest-500 to-forest-700 rounded-3xl p-8 shadow-2xl shadow-forest-500/20'>
-                            {/* Floating elements */}
-                            <div className='absolute -top-6 -right-6 w-24 h-24 bg-white rounded-2xl shadow-xl flex items-center justify-center animate-float'>
-                                <div className='text-center'>
-                                    <div className='text-2xl font-bold text-forest-600'>
-                                        50%
-                                    </div>
-                                    <div className='text-xs text-slate-500'>
-                                        Saved
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div
-                                className='absolute -bottom-4 -left-4 w-20 h-20 bg-white rounded-xl shadow-xl flex items-center justify-center animate-float'
-                                style={{ animationDelay: '1s' }}
+                        {/* Decorative elements behind video */}
+                        <div className='absolute -top-4 -right-4 w-24 h-24 border-2 border-forest-200 rounded-full opacity-60' />
+                        <div className='absolute -bottom-6 -left-6 w-32 h-32 border border-forest-300/40 rounded-full' />
+                        <div className='absolute top-1/2 -right-8 w-16 h-16 bg-forest-100/50 rounded-full blur-sm' />
+                        <div className='absolute -bottom-3 right-12 w-20 h-20 border border-dashed border-forest-300/30 rounded-full' />
+                        
+                        {/* Video container with hover effects */}
+                        <div className='group relative rounded-3xl overflow-hidden shadow-2xl shadow-forest-500/20 transition-all duration-500 hover:shadow-3xl hover:shadow-forest-500/30 hover:-translate-y-1 cursor-pointer'>
+                            {/* Subtle border glow on hover */}
+                            <div className='absolute inset-0 rounded-3xl border-2 border-transparent group-hover:border-forest-400/30 transition-all duration-500 z-10 pointer-events-none' />
+                            
+                            {/* Corner accents */}
+                            <div className='absolute top-3 left-3 w-8 h-8 border-l-2 border-t-2 border-white/40 rounded-tl-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none' />
+                            <div className='absolute bottom-3 right-3 w-8 h-8 border-r-2 border-b-2 border-white/40 rounded-br-lg opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10 pointer-events-none' />
+                            
+                            <video
+                                key={currentVideoIndex}
+                                className='w-full h-auto rounded-3xl transition-transform duration-500 group-hover:scale-[1.02]'
+                                autoPlay
+                                muted
+                                playsInline
+                                onEnded={handleVideoEnded}
                             >
-                                <Shield className='w-10 h-10 text-forest-500' />
-                            </div>
-
-                            {/* App mockup content */}
-                            <div className='bg-white/10 backdrop-blur rounded-2xl p-6 space-y-4'>
-                                <div className='flex items-center justify-between'>
-                                    <span className='text-white font-semibold'>
-                                        My Vehicles
-                                    </span>
-                                    <span className='text-forest-200 text-sm'>
-                                        2 cars
-                                    </span>
-                                </div>
-
-                                {/* Car card */}
-                                <div className='bg-white rounded-xl p-4 space-y-3'>
-                                    <div className='flex items-center gap-3'>
-                                        <div className='w-12 h-12 bg-forest-100 rounded-lg flex items-center justify-center'>
-                                            <Car className='w-6 h-6 text-forest-600' />
-                                        </div>
-                                        <div>
-                                            <div className='font-semibold text-slate-900'>
-                                                Tesla Model 3
-                                            </div>
-                                            <div className='text-sm text-slate-500'>
-                                                2023 • White
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='flex gap-2'>
-                                        <span className='px-3 py-1 bg-forest-100 text-forest-700 rounded-full text-xs font-medium'>
-                                            Service Due
-                                        </span>
-                                        <span className='px-3 py-1 bg-slate-100 text-slate-600 rounded-full text-xs font-medium'>
-                                            15k miles
-                                        </span>
-                                    </div>
-                                </div>
-
-                                {/* Quick actions */}
-                                <div className='grid grid-cols-3 gap-2'>
-                                    {[
-                                        'Book Service',
-                                        'Find Parts',
-                                        'Get Quote',
-                                    ].map((action, i) => (
-                                        <button
-                                            key={action}
-                                            className='bg-white/20 hover:bg-white/30 text-white text-sm py-2 px-3 rounded-lg transition-colors text-center'
-                                        >
-                                            {action}
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
+                                <source src={videos[currentVideoIndex].src} type='video/mp4' />
+                            </video>
                         </div>
+                        
+                        {/* Small decorative dot */}
+                        <div className='absolute -top-2 left-8 w-3 h-3 bg-forest-400 rounded-full animate-pulse' />
                     </div>
                 </div>
 
