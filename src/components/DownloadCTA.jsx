@@ -5,7 +5,12 @@ import {
   Star,
   Download,
   Apple,
-  Play
+  Play,
+  Wrench,
+  ShoppingCart,
+  Tag,
+  HelpCircle,
+  Car
 } from 'lucide-react'
 
 export default function DownloadCTA() {
@@ -147,53 +152,62 @@ export default function DownloadCTA() {
                       {/* App content */}
                       <div className="p-5">
                         {/* App header */}
-                        <div className="flex items-center justify-between mb-6">
+                        <div className="flex items-center justify-between mb-5">
                           <div className="flex items-center gap-2">
-                            <div className="w-8 h-8 bg-forest-500 rounded-lg flex items-center justify-center">
-                              <Smartphone className="w-4 h-4 text-white" />
+                            <div className="w-7 h-7 bg-forest-500 rounded-lg flex items-center justify-center">
+                              <Car className="w-3.5 h-3.5 text-white" />
                             </div>
-                            <span className="font-display font-bold text-slate-900">CarForce</span>
+                            <span className="font-display font-bold text-sm text-slate-900">CarForce</span>
                           </div>
-                          <div className="w-8 h-8 bg-slate-100 rounded-full" />
+                          <div className="w-7 h-7 bg-forest-100 rounded-full flex items-center justify-center">
+                            <span className="text-[10px] font-medium text-forest-600">JD</span>
+                          </div>
                         </div>
 
                         {/* Welcome message */}
-                        <div className="mb-6">
-                          <p className="text-slate-500 text-sm">Good morning!</p>
-                          <h3 className="font-display font-bold text-xl text-slate-900">Your car is ready</h3>
+                        <div className="mb-4">
+                          <p className="text-slate-500 text-xs">Good morning!</p>
+                          <h3 className="font-display font-bold text-lg text-slate-900">Your car is ready</h3>
                         </div>
 
                         {/* Car card */}
-                        <div className="bg-gradient-to-br from-forest-500 to-forest-600 rounded-2xl p-4 mb-4 text-white">
-                          <div className="flex justify-between items-start mb-3">
+                        <div className="bg-gradient-to-br from-forest-500 to-forest-600 rounded-xl p-3 mb-3 text-white">
+                          <div className="flex justify-between items-start mb-2">
                             <div>
-                              <p className="text-forest-100 text-sm">My Vehicle</p>
-                              <p className="font-semibold">Tesla Model 3</p>
+                              <p className="text-forest-100 text-[10px]">My Vehicle</p>
+                              <p className="font-semibold text-sm">Tesla Model 3</p>
                             </div>
-                            <div className="bg-white/20 px-2 py-1 rounded-full text-xs">
+                            <div className="bg-white/20 px-2 py-0.5 rounded-full text-[10px]">
                               Active
                             </div>
                           </div>
-                          <div className="flex gap-2">
-                            <span className="bg-white/20 px-2 py-1 rounded text-xs">15,230 mi</span>
-                            <span className="bg-white/20 px-2 py-1 rounded text-xs">Service OK</span>
+                          <div className="flex gap-1.5">
+                            <span className="bg-white/20 px-2 py-0.5 rounded text-[10px]">15,230 mi</span>
+                            <span className="bg-white/20 px-2 py-0.5 rounded text-[10px]">Service OK</span>
                           </div>
                         </div>
 
                         {/* Quick actions */}
                         <div className="grid grid-cols-4 gap-2 mb-4">
-                          {['Service', 'Buy', 'Sell', 'Help'].map((action) => (
-                            <div key={action} className="bg-white border border-slate-200 rounded-xl p-3 text-center">
-                              <div className="w-8 h-8 bg-forest-50 rounded-lg mx-auto mb-1" />
-                              <span className="text-xs text-slate-600">{action}</span>
+                          {[
+                            { name: 'Service', icon: Wrench },
+                            { name: 'Buy', icon: ShoppingCart },
+                            { name: 'Sell', icon: Tag },
+                            { name: 'Help', icon: HelpCircle }
+                          ].map((action) => (
+                            <div key={action.name} className="bg-white border border-slate-200 rounded-xl p-2 flex flex-col items-center justify-center">
+                              <div className="w-8 h-8 bg-forest-50 rounded-lg flex items-center justify-center mb-1">
+                                <action.icon className="w-4 h-4 text-forest-600" />
+                              </div>
+                              <span className="text-[10px] text-slate-600 font-medium">{action.name}</span>
                             </div>
                           ))}
                         </div>
 
                         {/* Promo card */}
-                        <div className="bg-slate-900 rounded-xl p-4 text-white">
-                          <p className="text-xs text-forest-400 mb-1">Special offer</p>
-                          <p className="font-semibold text-sm">Get 30% off your first service</p>
+                        <div className="bg-slate-900 rounded-xl p-3 text-white">
+                          <p className="text-[10px] text-forest-400 mb-0.5">Special offer</p>
+                          <p className="font-semibold text-xs">Get 30% off your first service</p>
                         </div>
                       </div>
                     </div>
