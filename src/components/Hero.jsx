@@ -255,17 +255,17 @@ const rotatingWords = [
 ];
 
 const videos = [
-    { src: '/car-force-product-lp/videos/Roadside_Assistance_Video_Generation.mp4' },
-    { src: '/car-force-product-lp/videos/Mobile_Mechanic_Video_Generation.mp4' },
-    { src: '/car-force-product-lp/videos/Car_Deal_Video_Generation.mp4' },
+    { src: '/videos/Roadside_Assistance_Video_Generation.mp4' },
+    { src: '/videos/Mobile_Mechanic_Video_Generation.mp4' },
+    { src: '/videos/Car_Deal_Video_Generation.mp4' },
 ];
 
 // Avatar images for trust indicators
 const avatarImages = [
-    '/car-force-product-lp/avatars/avatar-1.jpg',
-    '/car-force-product-lp/avatars/avatar-2.jpg',
-    '/car-force-product-lp/avatars/avatar-3.jpg',
-    '/car-force-product-lp/avatars/avatar-4.jpg',
+    '/avatars/avatar-1.jpg',
+    '/avatars/avatar-2.jpg',
+    '/avatars/avatar-3.jpg',
+    '/avatars/avatar-4.jpg',
 ];
 
 export default function Hero() {

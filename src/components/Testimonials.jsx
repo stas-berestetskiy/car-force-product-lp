@@ -14,7 +14,7 @@ const testimonials = [
     role: 'Tesla Model 3 Owner',
     location: 'San Francisco, CA',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/michael-thompson.jpg',
+    avatar: '/avatars/michael-thompson.jpg',
     text: "CarForce completely changed how I maintain my car. The AI mechanic diagnosed an issue my dealer missed, and the mobile service came to my office. Saved me hours and hundreds of dollars.",
     highlight: 'Saved me hours and hundreds of dollars'
   },
@@ -24,7 +24,7 @@ const testimonials = [
     role: 'First-time Car Buyer',
     location: 'Austin, TX',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/sarah-chen.jpg',
+    avatar: '/avatars/sarah-chen.jpg',
     text: "As someone who knew nothing about cars, buying my first vehicle was terrifying. CarForce's inspection service and transparent pricing gave me the confidence I needed. No more fear of hidden defects!",
     highlight: 'No more fear of hidden defects'
   },
@@ -34,7 +34,7 @@ const testimonials = [
     role: 'Fleet Manager',
     location: 'Miami, FL',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/james-rodriguez.jpg',
+    avatar: '/avatars/james-rodriguez.jpg',
     text: "Managing 15 company vehicles used to be a nightmare. Now everything is in one app — service history, scheduling, costs. The predictive maintenance alone has reduced our downtime by 40%.",
     highlight: 'Reduced downtime by 40%'
   },
@@ -44,7 +44,7 @@ const testimonials = [
     role: 'Busy Mom of 3',
     location: 'Denver, CO',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/emily-watson.jpg',
+    avatar: '/avatars/emily-watson.jpg',
     text: "Between kids' activities and work, I have zero time for car maintenance. CarForce sends reminders, the mechanic comes to my driveway, and I don't have to sit in a waiting room. Game changer!",
     highlight: 'Game changer for busy families'
   },
@@ -54,7 +54,7 @@ const testimonials = [
     role: 'Sold 2 Cars via CarForce',
     location: 'Seattle, WA',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/david-park.jpg',
+    avatar: '/avatars/david-park.jpg',
     text: "Sold both my cars through CarForce. Fair valuations, verified buyers, and the transaction was smooth and safe. Got 15% more than what the dealership offered me.",
     highlight: 'Got 15% more than dealership offers'
   },
@@ -64,7 +64,7 @@ const testimonials = [
     role: 'Road Trip Enthusiast',
     location: 'Phoenix, AZ',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/lisa-martinez.jpg',
+    avatar: '/avatars/lisa-martinez.jpg',
     text: "The 24/7 roadside assistance is worth every penny. Got a flat tire at 11 PM in the middle of nowhere — help arrived in 25 minutes. Peace of mind you can't put a price on.",
     highlight: 'Help arrived in 25 minutes'
   },
@@ -74,7 +74,7 @@ const testimonials = [
     role: 'Independent Mechanic',
     location: 'Chicago, IL',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/robert-kim.jpg',
+    avatar: '/avatars/robert-kim.jpg',
     text: "As a mechanic, CarForce has been incredible for my business. Steady flow of customers, no need for expensive advertising, and I can focus on what I do best — fixing cars.",
     highlight: 'Steady flow of customers'
   },
@@ -84,7 +84,7 @@ const testimonials = [
     role: 'Total Care Subscriber',
     location: 'New York, NY',
     rating: 5,
-    avatar: '/car-force-product-lp/avatars/amanda-foster.jpg',
+    avatar: '/avatars/amanda-foster.jpg',
     text: "The Total Care plan is brilliant. I pay a flat monthly fee and never worry about unexpected repair costs. Already saved over $800 this year compared to my old maintenance routine.",
     highlight: 'Saved over $800 this year'
   },
